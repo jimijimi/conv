@@ -12,9 +12,27 @@ conv utilizes an external database file where the information for the conversion
 
 m   km   0.001    0.0
 
-The numerical constant has a value of zero except for the temperature conversion. ( See the example database provided ).
 
 One line comments can be included in the database by itializing them with a '#'
+
+
+Conversion Formula:
+===================
+
+A generalized conversion expression can be:
+
+y = Fx + C
+
+where:
+y = the quantity in the target units
+x = the quantity in the initial units
+F = conversion factor
+C = conversion constant.
+
+Usually C is zero for most conversions except for temperature. ( See the example database provided ).
+
+A more general form for this conversion expression will be introduced later.
+
 
 Requirements:
 =============
