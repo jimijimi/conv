@@ -1,6 +1,6 @@
 /*
-  conv version1 - command line unit conversion.
-  Copyright (C) 2015  Jaime Ortiz
+  conv version 2.0 - command line unit conversion.
+  Copyright (C) 2015 Jaime Ortiz
   
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <math.h>
 
 
 #define VALID_NUM_ARGS 5
@@ -51,6 +52,7 @@ struct Database{
 	char **to_unit;
 	char **factor;
 	char **constant;
+	char **exponent;
 };
 
 
@@ -151,6 +153,7 @@ void InitializeDatabase (struct Database *db )
 	db -> to_unit = NULL;
 	db -> factor = NULL;
 	db -> constant = NULL;
+	db -> exponent = NULL;
 }
 
 void InitializeResult( struct Result *r )
@@ -176,6 +179,9 @@ void ResizeDatabase( struct Database *db )
 
 	temp_array = realloc( db -> constant, db -> n * sizeof( char** ) );
 	db -> constant = temp_array;
+
+	temp_array = realloc( db -> exponent, db -> n * sizeof( char** ) );
+	db -> exponent = temp_array;
 }
 
 void ValidateData( struct Data *d )
@@ -217,7 +223,7 @@ void GetInstallationPath( char *path )
 #ifdef WINDOWS
 	char full_path[ MAX_CHARS ];
 	char drive[ MAX_CHARS ];
-	_snprintf( full_path, MAX_CHARS, "%Fs", _pgmptr );
+	_snprintf( full_path, MAX_CHARS, "%s", _pgmptr ); //%Fs
 	_splitpath_s( full_path, drive, MAX_CHARS, dir, MAX_CHARS, NULL, 0, NULL, 0 );
 	_snprintf( path, 2048, "%s%sconvdb.dat", drive, dir );
 #else
@@ -251,9 +257,11 @@ void LoadDatabase( struct Database *db )
 			char *this_line = NULL;
 			this_line = Strip( line );
 			temp_line = Split( this_line, " " );
-			if ( temp_line -> n < 4 ){
+			if ( temp_line -> n < 5 ){
 				printf( "Malformed database entry\n" );
 				printf( "%s", line );
+				printf( "Five (5) columns are needed:\n" );
+				printf( "Original Units | Target Units | Factor | Constant | Exponent\n" );
 				exit( 1 );
 			}
 			ResizeDatabase( db );
@@ -261,6 +269,7 @@ void LoadDatabase( struct Database *db )
 			db -> to_unit[ db -> n - 1 ] = strdup( temp_line -> l[1] );
 			db -> factor[ db -> n - 1 ] = strdup( temp_line -> l[2] );
 			db -> constant[ db -> n - 1 ] = strdup( temp_line -> l[3] );
+			db -> exponent[ db -> n - 1 ] = strdup( temp_line -> l[4] );
 			CleanList( temp_line );
 			free( this_line );
 		}
@@ -275,7 +284,8 @@ void Convert( struct Database *db, struct Data *d, struct Result *r )
 	for( i = 0; i < db -> n; i++ ){
 		if( !strcmp( db -> from_unit[i], d -> from_unit ) &&
 		    !strcmp( db -> to_unit[i], d -> to_unit ) ){
-			r -> result = atof( d -> qty ) * atof( db -> factor[ i ] ) + atof( db -> constant[ i ] );
+			r -> result = pow( atof( d -> qty ), atof( db ->exponent[ i ] ) ) * atof( db -> factor[ i ] ) +
+				atof( db -> constant[ i ] );
 			r -> valid = 1;
 			return;
 		}
@@ -325,15 +335,17 @@ void CleanDatabase( struct Database *db )
 {
 	int i = 0;
 	for ( i = 0; i < db -> n; i ++ ){
-		free( db -> from_unit[i] );
-		free( db -> to_unit[i] );
-		free( db -> factor[i] );
-		free( db -> constant[i] );
+		free( db -> from_unit[ i ] );
+		free( db -> to_unit[ i ] );
+		free( db -> factor[ i ] );
+		free( db -> constant[ i ] );
+		free( db -> exponent[ i ] );
 	}
 	free( db -> from_unit );
 	free( db -> to_unit );
 	free( db -> factor );
 	free( db -> constant );
+	free( db -> exponent );
 }
 
 char *Strip( char *s )
@@ -376,8 +388,6 @@ struct List *Split( char *s_a, char *del )
 		final_list -> l = temp_returned_list;
 		word_len = strlen( pw );
 		final_list -> l[ final_list -> n ] = strdup( pw );
-		//final_list -> l[ final_list -> n ] = malloc( ( word_len + 2 ) * sizeof( char ) );
-		//strcpy( final_list -> l[ final_list -> n ], pw );
 		pw = strtok( NULL, del );
 		final_list -> n += 1;
 	}
