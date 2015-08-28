@@ -1,177 +1,203 @@
+# conv units database -- Jaime Ortiz
+# ======================================================================
+# FROM       TO              FACTOR             CONSTANT        EXPONENT
 # AREA
-ft2          m2              0.0929             0.0
-in2          m2             6.452e-4            0.0
+ft2          m2              0.0929             0.0             1.0
+in2          m2             6.452e-4            0.0             1.0
 # DENSITY
-kg/m3        lbm/ft3         0.0624297          0.0
-kg/m3        slug/ft3        0.0019403          0.0
+kg/m3        lbm/ft3         0.0624297          0.0             1.0
+kg/m3        slug/ft3        0.0019403          0.0             1.0
 # ENERGY
-J            kJ              0.001              0.0
-J            BTU             9.477775e-4        0.0
-kJ           BTU             0.9477775          0.0
+J            kJ              0.001              0.0             1.0
+J            BTU             9.477775e-4        0.0             1.0
+kJ           BTU             0.9477775          0.0             1.0
 # ENTROPY
-J/K          BTU/R           5.265374e-4        0.0
+J/K          BTU/R           5.265374e-4        0.0             1.0
 # FORCE
-N            lbf             0.22482014         0.0
+N            lbf             0.22482014         0.0             1.0
+# FUEL CONSUMPTION
+km/L         l/100km       100.0                0.0            -1.0
+km/L         L/100km       100.0                0.0            -1.0
+km/l         l/100km       100.0                0.0            -1.0
+km/l         L/100km       100.0                0.0            -1.0
+km/L         mi/gal          2.3509316          0.0             1.0
+km/l         mi/gal          2.3509316          0.0             1.0
+km/L         mpg             2.3509316          0.0             1.0
+km/l         mpg             2.3509316          0.0             1.0
+L/100km      km/L          100.0                0.0            -1.0
+L/100km      km/l          100.0                0.0            -1.0
+l/100km      km/L          100.0                0.0            -1.0
+l/100km      km/l          100.0                0.0            -1.0
+L/100km      mpg           235.0931677          0.0            -1.0
+l/100km      mpg           235.0931677          0.0            -1.0
+mi/gal       km/L            0.4253632          0.0             1.0
+mi/gal       km/l            0.4253632          0.0             1.0
+mi/gal       L/100km       235.0931677          0.0            -1.0
+mi/gal       l/100km       235.0931677          0.0            -1.0
+mpg          km/L            0.4253632          0.0             1.0
+mpg          km/l            0.4253632          0.0             1.0
+mpg          L/100km       235.0931677          0.0            -1.0
+mpg          l/100km       235.0931677          0.0            -1.0
 # HEAT FLOW RATE
-W            BTU/h           3.411804           0.0
-kW           BTU/s           0.94777746         0.0
+W            BTU/h           3.411804           0.0             1.0
+kW           BTU/s           0.94777746         0.0             1.0
 # HEAT TRANSFER COEFFICIENT
-W/m2K        BTU/hft2F       0.17611835         0.0
+W/m2K        BTU/hft2F       0.17611835         0.0             1.0
 # MASS
-g            kg              0.0001             0.0
-kg           g            1000.0                0.0
-kg           lbm             0.4536             0.0
-lbm          g             453.6                0.0
-lbm          kg              0.4536             0.0
-slug         kg            14.594               0.0
+g            kg              0.0001             0.0             1.0
+kg           g            1000.0                0.0             1.0
+kg           lbm             0.4536             0.0             1.0
+lbm          g             453.6                0.0             1.0
+lbm          kg              0.4536             0.0             1.0
+slug         kg            14.594               0.0             1.0
 # TEMPERATURE
-F            C               0.5555555556     -17.7777777778
-F            K               0.5555555556     255.37223
-F            F               1.0                0.0
-F            R               1.0              459.67
-C            C               1.0                0.0
-C            K               1.0              273.15
-C            F               1.8               32.0
-C            R               1.8              491.67
-K            K               1.0                0.0
-K            C               1.0             -273.15
-K            F               1.8             -459.67
-K            R               1.8                0.0
-R            C               0.5555555556    -273.15
-R            K               0.5555555556       0.0
-R            F               1.0             -459.57
-R            R               1.0                0.0
+F            C               0.5555555556     -17.7777777778    1.0
+F            K               0.5555555556     255.37223         1.0
+F            F               1.0                0.0             1.0
+F            R               1.0              459.67            1.0
+C            C               1.0                0.0             1.0
+C            K               1.0              273.15            1.0
+C            F               1.8               32.0             1.0
+C            R               1.8              491.67            1.0
+K            K               1.0                0.0             1.0
+K            C               1.0             -273.15            1.0
+K            F               1.8             -459.67            1.0
+K            R               1.8                0.0             1.0
+R            C               0.5555555556    -273.15            1.0
+R            K               0.5555555556       0.0             1.0
+R            F               1.0             -459.57            1.0
+R            R               1.0                0.0             1.0
 # TIME
-day          min          1440.0                0.0
-day          weeks           0.1428571428       0.0
-min          day             0.0006944444       0.0
-min          h               0.0166666667       0.0
-min          s              60.0                0.0
-s            min             0.0166666667       0.0
+day          min          1440.0                0.0             1.0
+day          weeks           0.1428571428       0.0             1.0
+min          day             0.0006944444       0.0             1.0
+min          h               0.0166666667       0.0             1.0
+min          s              60.0                0.0             1.0
+s            min             0.0166666667       0.0             1.0
 # DISTANCE
-AU           parsec          0.0000048484       0.0
-AU           pc              0.0000048484       0.0
-ft           cm             30.48               0.0
-cm           cm              1.0                0.0
-cm           ft              0.0328084          0.0
-cm           in              0.393701           0.0
-cm           nauticalmile    5.3996e-6          0.0
-cm           m               0.01               0.0
-cm           mm             10.0                0.0
-cm           mi              6.2137e-6          0.0
-cm           yd              0.0109361          0.0
-cm           km              1e-5               0.0
-ft           ft              1.0                0.0
-ft           in             12.0                0.0
-ft           km              0.0003048000       0.0
-ft           m               0.3048000000       0.0
-ft           mi              0.0001893940       0.0
-ft           mm            304.8                0.0
-ft           nauticalmile    0.000164579        0.0
-ft           yd              0.3333333333       0.0
-ft           yard            0.3333333333       0.0
-in           cm              2.54               0.0
-in           ft              0.0833333333       0.0
-in           in              1.3715e-5          0.0
-in           km              2.54e-5            0.0
-in           m               0.0254             0.0
-in           mi              1.5783e-5          0.0
-in           mm             25.4                0.0
-in           yd              0.02777778         0.0
-km           cm         100000.0                0.0
-km           ft           3280.84               0.0
-km           in          39370.1                0.0
-km           km              1.0                0.0
-km           m            1000.0                0.0
-km           mm        1000000.0                0.0
-km           mi              0.621371           0.0
-km           nauticalmile    0.539957           0.0
-km           yd           1093.61               0.0
-ly           pc              0.306594845        0.0
-ly           parsec          0.306594845        0.0
-lightyear    pc              0.306594845        0.0
-lightyear    parsec          0.306594845        0.0
-m            cm            100.0                0.0
-m            ft              3.28084            0.0
-m            in             39.3701             0.0
-m            km              0.001              0.0
-m            m               1.0                0.0
-m            mm           1000.0                0.0
-m            mi              0.000621371        0.0
-m            mile            0.000621371        0.0
-m            miles           0.000621371        0.0
-m            nauticalmile    0.000539957        0.0
-m            yd              1.09361            0.0
-mm           cm              0.1                0.0
-mm           ft              0.00328084         0.0
-mm           in              0.0393701          0.0
-mm           m               0.001              0.0
-mm           mm              1.0                0.0
-mm           mi              6.2137e-7          0.0
-mm           nmi             5.3996e-7          0.0
-mm           nmile           5.3996e-7          0.0
-mm           nauticalmile    5.3996e-7          0.0
-mm           yd              0.00109361         0.0
-mm           km              1.0e-6             0.0
-mi           cm         160934.0                0.0
-mi           ft           5280.0                0.0
-mi           in          63360.0                0.0
-mi           km              1.60934            0.0
-mi           m            1609.34               0.0
-mi           mm              1.609e6            0.0
-mi           mi              1.0                0.0
-mi           nmi             0.868976           0.0
-mi           nmile           0.868976           0.0
-mi           nauticalmile    0.868976           0.0
-mi           yard         1760.0                0.0
-nauticalmile cm         185200.0                0.0
-nauticalmile in          72913.4                0.0
-nauticalmile km              1.852              0.0
-nauticalmile m            1852.0                0.0
-nauticalmile mi              1.15078            0.0
-nauticalmile mm              1.852e6            0.0
-nauticalmile nauticalmile    1.0                0.0
-nauticalmile yd           2025.37               0.0
-nauticalmile ft           6076.12               0.0
-nmi          cm         185200.0                0.0
-nmi          in          72913.4                0.0
-nmi          km              1.852              0.0
-nmi          m            1852.0                0.0
-nmi          mi              1.15078            0.0
-nmi          mm              1.852e6            0.0
-nmi          nmi             1.0                0.0
-nmi          yd            2025.37              0.0
-nmi          ft           6076.12               0.0
-nmile        cm         185200.0                0.0
-nmile        in          72913.4                0.0
-nmile        km              1.852              0.0
-nmile        m            1852.0                0.0
-nmile        mi              1.15078            0.0
-nmile        mm              1.852e6            0.0
-nmile        nmile           1.0                0.0
-nmile        yd           2025.37               0.0
-nmile        ft           6076.12               0.0
-parsec       AU         206264.806              0.0
-pc           AU         206264.806              0.0
-parsec       ly              3.26163344         0.0
-parsec       lightyear       3.26163344         0.0
-pc           ly              3.26163344         0.0
-pc           lightyear       3.26163344         0.0
-yd           cm             91.44               0.0
-yd           ft              3.0                0.0
-yd           in             36.0                0.0
-yd           km              0.0009144          0.0
-yd           m               0.9144             0.0
-yd           mm            914.4                0.0
-yd           mi              0.000568182        0.0
-yd           nmi             0.000493737        0.0
-yd           nmile           0.000493737        0.0
-yd           nauticalmile    0.000493737        0.0
-yd           yd              1.0                0.0
+AU           parsec          0.0000048484       0.0             1.0
+AU           pc              0.0000048484       0.0             1.0
+ft           cm             30.48               0.0             1.0
+cm           cm              1.0                0.0             1.0
+cm           ft              0.0328084          0.0             1.0
+cm           in              0.393701           0.0             1.0
+cm           nauticalmile    5.3996e-6          0.0             1.0
+cm           m               0.01               0.0             1.0
+cm           mm             10.0                0.0             1.0
+cm           mi              6.2137e-6          0.0             1.0
+cm           yd              0.0109361          0.0             1.0
+cm           km              1e-5               0.0             1.0
+ft           ft              1.0                0.0             1.0
+ft           in             12.0                0.0             1.0
+ft           km              0.0003048000       0.0             1.0
+ft           m               0.3048000000       0.0             1.0
+ft           mi              0.0001893940       0.0             1.0
+ft           mm            304.8                0.0             1.0
+ft           nauticalmile    0.000164579        0.0             1.0
+ft           yd              0.3333333333       0.0             1.0
+ft           yard            0.3333333333       0.0             1.0
+in           cm              2.54               0.0             1.0
+in           ft              0.0833333333       0.0             1.0
+in           in              1.3715e-5          0.0             1.0
+in           km              2.54e-5            0.0             1.0
+in           m               0.0254             0.0             1.0
+in           mi              1.5783e-5          0.0             1.0
+in           mm             25.4                0.0             1.0
+in           yd              0.02777778         0.0             1.0
+km           cm         100000.0                0.0             1.0
+km           ft           3280.84               0.0             1.0
+km           in          39370.1                0.0             1.0
+km           km              1.0                0.0             1.0
+km           m            1000.0                0.0             1.0
+km           mm        1000000.0                0.0             1.0
+km           mi              0.621371           0.0             1.0
+km           nauticalmile    0.539957           0.0             1.0
+km           yd           1093.61               0.0             1.0
+ly           pc              0.306594845        0.0             1.0
+ly           parsec          0.306594845        0.0             1.0
+lightyear    pc              0.306594845        0.0             1.0
+lightyear    parsec          0.306594845        0.0             1.0
+m            cm            100.0                0.0             1.0
+m            ft              3.28084            0.0             1.0
+m            in             39.3701             0.0             1.0
+m            km              0.001              0.0             1.0
+m            m               1.0                0.0             1.0
+m            mm           1000.0                0.0             1.0
+m            mi              0.000621371        0.0             1.0
+m            mile            0.000621371        0.0             1.0
+m            miles           0.000621371        0.0             1.0
+m            nauticalmile    0.000539957        0.0             1.0
+m            yd              1.09361            0.0             1.0
+mm           cm              0.1                0.0             1.0
+mm           ft              0.00328084         0.0             1.0
+mm           in              0.0393701          0.0             1.0
+mm           m               0.001              0.0             1.0
+mm           mm              1.0                0.0             1.0
+mm           mi              6.2137e-7          0.0             1.0
+mm           nmi             5.3996e-7          0.0             1.0
+mm           nmile           5.3996e-7          0.0             1.0
+mm           nauticalmile    5.3996e-7          0.0             1.0
+mm           yd              0.00109361         0.0             1.0
+mm           km              1.0e-6             0.0             1.0
+mi           cm         160934.0                0.0             1.0
+mi           ft           5280.0                0.0             1.0
+mi           in          63360.0                0.0             1.0
+mi           km              1.60934            0.0             1.0
+mi           m            1609.34               0.0             1.0
+mi           mm              1.609e6            0.0             1.0
+mi           mi              1.0                0.0             1.0
+mi           nmi             0.868976           0.0             1.0
+mi           nmile           0.868976           0.0             1.0
+mi           nauticalmile    0.868976           0.0             1.0
+mi           yard         1760.0                0.0             1.0
+nauticalmile cm         185200.0                0.0             1.0
+nauticalmile in          72913.4                0.0             1.0
+nauticalmile km              1.852              0.0             1.0
+nauticalmile m            1852.0                0.0             1.0
+nauticalmile mi              1.15078            0.0             1.0
+nauticalmile mm              1.852e6            0.0             1.0
+nauticalmile nauticalmile    1.0                0.0             1.0
+nauticalmile yd           2025.37               0.0             1.0
+nauticalmile ft           6076.12               0.0             1.0
+nmi          cm         185200.0                0.0             1.0
+nmi          in          72913.4                0.0             1.0
+nmi          km              1.852              0.0             1.0
+nmi          m            1852.0                0.0             1.0
+nmi          mi              1.15078            0.0             1.0
+nmi          mm              1.852e6            0.0             1.0
+nmi          nmi             1.0                0.0             1.0
+nmi          yd            2025.37              0.0             1.0
+nmi          ft           6076.12               0.0             1.0
+nmile        cm         185200.0                0.0             1.0
+nmile        in          72913.4                0.0             1.0
+nmile        km              1.852              0.0             1.0
+nmile        m            1852.0                0.0             1.0
+nmile        mi              1.15078            0.0             1.0
+nmile        mm              1.852e6            0.0             1.0
+nmile        nmile           1.0                0.0             1.0
+nmile        yd           2025.37               0.0             1.0
+nmile        ft           6076.12               0.0             1.0
+parsec       AU         206264.806              0.0             1.0
+pc           AU         206264.806              0.0             1.0
+parsec       ly              3.26163344         0.0             1.0
+parsec       lightyear       3.26163344         0.0             1.0
+pc           ly              3.26163344         0.0             1.0
+pc           lightyear       3.26163344         0.0             1.0
+yd           cm             91.44               0.0             1.0
+yd           ft              3.0                0.0             1.0
+yd           in             36.0                0.0             1.0
+yd           km              0.0009144          0.0             1.0
+yd           m               0.9144             0.0             1.0
+yd           mm            914.4                0.0             1.0
+yd           mi              0.000568182        0.0             1.0
+yd           nmi             0.000493737        0.0             1.0
+yd           nmile           0.000493737        0.0             1.0
+yd           nauticalmile    0.000493737        0.0             1.0
+yd           yd              1.0                0.0             1.0
 # VELOCITY
-mph          m/s             0.4472222222       0.0
-mph          km/h            1.61               0.0
-m/s          mph             2.2360248          0.0
-m/s          km/h            3.6                0.0
-km/h         m/s             2.7777777778       0.0
+mph          m/s             0.4472222222       0.0             1.0
+mph          km/h            1.61               0.0             1.0
+m/s          mph             2.2360248          0.0             1.0
+m/s          km/h            3.6                0.0             1.0
+km/h         m/s             2.7777777778       0.0             1.0
 
